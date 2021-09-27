@@ -1,0 +1,18 @@
+.font-main {
+	font-size: 30px;
+	font-style: bold;
+}
+.input-text {
+	width: 400px;
+	height: 40px;
+}
+.radio-design {
+	border: 1px solid black;
+	border-radius: 50%;
+}
+.output-div {
+	border: 1px solid lightslategray;
+	height: 50px;
+	width: 400px;
+
+}
