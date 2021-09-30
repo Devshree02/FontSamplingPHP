@@ -19,9 +19,14 @@ $(document).ready(function(){
     customVar.radioSelector(jQuery(this));
   })
 
-  jQuery(document).on('click','#btnid',function() {
+  jQuery(document).on('click','#submitbutton',function() {
     let divimage=document.getElementById("outputdivid");
-    html2canvas(divimage);
+    html2canvas(divimage).then(function(canvas) {
+      let canvasUrl = canvas.toDataURL();
+
+      // window.alert(canvasUrl);  
+    });
+
     // window.alert("div converted in image"); 
   })
 

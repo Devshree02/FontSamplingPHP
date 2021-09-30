@@ -19,50 +19,66 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.esm.min.js" integrity="sha512-0hmaFjQS8qYlrVu0XMik2K6J9pJ6Y8yI84SuzOHfugAT9U1jp44MDopCE2i1JsO4zPUEHwPxgGXC37q4KCn1aA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.js" integrity="sha512-sk0cNQsixYVuaLJRG0a/KRJo9KBkwTDqr+/V94YrifZ6qi8+OO3iJEoHi0LvcTVv1HaBbbIvpx+MCjOuLVnwKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-<body>
+<body class="container">
 	<div class="container">
-		<form>
-			<div class="m-3 font-main">Background Color</br></div>
-			<label class="mr-5 radio-lable"><input type="radio" name="background-color" class="mr-2 option-input radio" value="yellow">Yellow</label>
-      <label class="mr-5 radio-lable"><input type="radio" name="background-color" class="mr-2 option-input radio" value="red">Red</label>
-      <label class="mr-5 radio-lable"><input type="radio" name="background-color" class="mr-2 option-input radio" value="black">Black</label>
-      <label class="mr-5 radio-lable"><input type="radio" name="background-color" class="mr-2 option-input radio" value="green">Green</label>
+		
+     <div class="m-3 font-main" id="demophp">Background Color</br></div>
+     <label class="mr-5 radio-lable"><input type="radio" name="background-color" class="mr-2 option-input radio" value="yellow">Yellow</label>
+     <label class="mr-5 radio-lable"><input type="radio" name="background-color" class="mr-2 option-input radio" value="red">Red</label>
+     <label class="mr-5 radio-lable"><input type="radio" name="background-color" class="mr-2 option-input radio" value="black">Black</label>
+     <label class="mr-5 radio-lable"><input type="radio" name="background-color" class="mr-2 option-input radio" value="green">Green</label>
 
-      <div class="m-3 font-main">Text Color</br></div>
-      <label class="mr-5 radio-lable"><input type="radio" name="color" class="mr-2 option-input radio" value="yellow">Yellow</label>
-      <label class="mr-5 radio-lable"><input type="radio" name="color" class="mr-2 option-input radio" value="red">Red</label>
-      <label class="mr-5 radio-lable"><input type="radio" name="color" class="mr-2 option-input radio" value="black">Black</label>
-      <label class="mr-5 radio-lable"><input type="radio" name="color" class="mr-2 option-input radio" value="green">Green</label>
+     <div class="m-3 font-main">Text Color</br></div>
+     <label class="mr-5 radio-lable"><input type="radio" name="color" class="mr-2 option-input radio" value="yellow">Yellow</label>
+     <label class="mr-5 radio-lable"><input type="radio" name="color" class="mr-2 option-input radio" value="red">Red</label>
+     <label class="mr-5 radio-lable"><input type="radio" name="color" class="mr-2 option-input radio" value="black">Black</label>
+     <label class="mr-5 radio-lable"><input type="radio" name="color" class="mr-2 option-input radio" value="green">Green</label>
 
-      <div class="m-3 font-main">Font style</br></div>
-      <label class="mr-5 radio-lable"><input type="radio" name="font-family" class="mr-2 option-input radio" value="sansSerif">Sans-serif</label>
-      <label class="mr-5 radio-lable"><input type="radio" name="font-family" class="mr-2 option-input radio" value="monospace">Monospace</label>
-      <label class="mr-5 radio-lable"><input type="radio" name="font-family" class="mr-2 option-input radio" value="cursive">Cursive</label>
-      <label class="mr-5 radio-lable"><input type="radio" name="font-family" class="mr-2 option-input radio" value="fantasy">Fantasy</label></form></br>
+     <div class="m-3 font-main">Font style</br></div>
+     <label class="mr-5 radio-lable"><input type="radio" name="font-family" class="mr-2 option-input radio" value="sansSerif">Sans-serif</label>
+     <label class="mr-5 radio-lable"><input type="radio" name="font-family" class="mr-2 option-input radio" value="monospace">Monospace</label>
+     <label class="mr-5 radio-lable"><input type="radio" name="font-family" class="mr-2 option-input radio" value="cursive">Cursive</label>
+     <label class="mr-5 radio-lable"><input type="radio" name="font-family" class="mr-2 option-input radio" value="fantasy">Fantasy</label></form></br>
+
+     <form method="post" action="">
 
       <input type="text" placeholder="Enter your text" class="input-text mb-3" id="inputtextid"></br>
-      <input type="text" placeholder="Enter your name" class="input-text mr-3" id="inputnameid">
-      <button type="button" class="btn btn-info" id="btnid">submit</button>
-      <div id="outputdivid" class="output-div mt-3"></div>
-      <div id="resultimage"></div>
+      <input type="text" placeholder="Enter your name" class="input-text mr-3" id="inputnameid" name="name">
+      <input type="submit" class="btn btn-info mr-3" id="submitbutton" name="submit">
+      <!-- <button type="button" class="btn btn-info" id="access">Access</button> -->
+      <div id="outputdivid" class="output-div mt-3 mb-3"></div>
+      <!-- <div id="resultimage"></div> -->
+      <!-- <input type="submit" name="submit"> -->
       <!-- <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>  -->
       
-		</form>
-	</div>
+  </form>
+</div>
 
   <?php
-  $filename = 'demo.txt';
-  $handle = fopen($filename, 'w');
 
-  if (file_exists($filename)) {
-    chmod($filename, 0777);
-    echo "The file $filename exists";
-    fwrite($handle, "hello world");
-  } else {
-    echo "The file $filename does not exist";
-  }
+
+  if(isset($_POST['submit']))
+  {
+    $name=$_POST['name'];
+    $t=time();
+    $dt=date("Y-m-d",$t);
+    $image_name="fontSampling".$t.".png";
+
+    
+    $file_open = fopen("custom.csv", "a");
+
+    $form_data = array(
+
+      'name'    =>  $name,
+      $dt, $image_name
+  );
+    fputcsv($file_open, $form_data);
+    echo "Your entry is submitted successfully";
+}
+
+
   ?>
-
+ 
 </body>
 
 <script src="assests/js/custom.js"></script>
